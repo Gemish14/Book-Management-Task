@@ -32,6 +32,7 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
+    "home.apps.HomeConfig",
     "django.contrib.admin",
     "django.contrib.auth",
     "django.contrib.contenttypes",
@@ -106,7 +107,7 @@ AUTH_PASSWORD_VALIDATORS = [
 
 LANGUAGE_CODE = "en-us"
 
-TIME_ZONE = "UTC"
+TIME_ZONE = 'Asia/Kolkata'
 
 USE_I18N = True
 
@@ -117,8 +118,30 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/4.2/howto/static-files/
 
 STATIC_URL = "static/"
+STATICFILES_DIRS = [
+    os.path.join(BASE_DIR, 'home', 'static'),  # Main static directory
+    os.path.join(BASE_DIR, 'home', 'static', 'Engineering'),  
+    os.path.join(BASE_DIR, 'home', 'static', 'Medical'),    
+    #os.path.join(BASE_DIR, 'home', 'static', 'law'),          
+    #os.path.join(BASE_DIR, 'home', 'static', 'civil'),        
+    
+    os.path.join(BASE_DIR, 'home', 'static', 'Engineering', 'CS'),  
+    os.path.join(BASE_DIR, 'home', 'static', 'Engineering', 'Electrical'),  
+    os.path.join(BASE_DIR, 'home', 'static', 'Engineering', 'Textile'),     
+    os.path.join(BASE_DIR, 'home', 'static', 'Engineering', 'Civil'), 
+
+    os.path.join(BASE_DIR, 'home', 'static', 'Medical', 'MBBS'),  
+    os.path.join(BASE_DIR, 'home', 'static', 'Medical', 'Pharmacy')    
+   
+    # Add other sub-subcategories or subdirectories for other categories similarly
+]
+
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
+
+
+MEDIA_URL = '/media/'
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
