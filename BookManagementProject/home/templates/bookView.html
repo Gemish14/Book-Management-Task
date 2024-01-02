@@ -1,0 +1,21 @@
+{% extends "layout.html" %}
+{% block title %} <title>{{ book.name }} Details</title>
+{% endblock title %}
+
+{% block body %}
+<div class="container">
+    <div class="row">
+        <div class="col-md-4">
+            <img src="{{ book.cover_image.url }}" alt="{{ book.title }} Cover">
+        </div>
+        <div class="col-md-8">
+            <h2>{{ book.title }}</h2>
+            <p><strong>ID:</strong> {{ book.book_id }}</p>
+            <p><strong>Pages:</strong> {{ book.pagesCount }}</p>
+            <p><strong>Author:</strong> {{ book.author }}</p>
+            <p><strong>Price:</strong> ₹{{ book.price }}</p>
+        </div>
+    </div>
+</div>
+
+{% endblock body %}

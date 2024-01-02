@@ -1,58 +1,97 @@
 {% extends "layout.html" %}
+{%block title%} Home {%endblock title%}
 {% block body %}
 
-    <div class="container-fluid py-5">
-        <h1 class="display-5 fw-bold">Custom jumbotron</h1>
-        <p class="col-md-8 fs-4">Using a series of utilities, you can create this jumbotron, just like the one in previous versions of Bootstrap. Check out the examples below for how you can remix and restyle it to your liking.</p>
-        <button class="btn btn-primary btn-lg" type="button">Example button</button>
-      </div>
+<div class="container-fluid py-5">
+    <h1 class="display-5 fw-bold">VJTI Library</h1>
+    <p class="col-md-8 fs-4">Get your hands on hundreds of books of our VJTI's library. Anytime and Anywhere</p>
+    <a href="/AllBooks" class="btn btn-primary">Explore All Books</a>
+</div>
 
-    <div class="container">
-        <div class="row">
-            <div class="col-md-3">
-                <div class="card mb-4">
-                    <img src="https://via.placeholder.com/300x200" class="card-img-top" alt="Book Image">
-                    <div class="card-body">
-                        <h5 class="card-title">Fiction Books</h5>
-                        <p class="card-text">Discover the world of imagination!</p>
-                        <a href="fiction.html" class="btn btn-primary">View More</a>
+<div class="container">
+    <div class="row">
+        <div class="col-md-3">
+            <div class="card mb-4 h-100">
+                <img src="static\Engineering\engineering-wallpaper.jpg" class="card-img-top"
+                    alt="Engineering Book Image" style="height: 200px;">
+                <div class="card-body">
+                    <h5 class="card-title">Engineering</h5>
+                    <p class="card-text">Discover the world of Engineering</p>
+                    <div class="btn-group">
+                        <button type="button" class="btn btn-primary dropdown-toggle" data-bs-toggle="dropdown"
+                            aria-expanded="false">
+                            View Books
+                        </button>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="#">Computer Science</a></li>
+                            <li><a class="dropdown-item" href="#">Textile</a></li>
+                            <li><a class="dropdown-item" href="#">Civil</a></li>
+                            <li><a class="dropdown-item" href="#">Electrical</a></li>
+                        </ul>
                     </div>
                 </div>
             </div>
-
-            <div class="col-md-3">
-                <div class="card mb-4">
-                    <img src="https://via.placeholder.com/300x200" class="card-img-top" alt="Book Image">
-                    <div class="card-body">
-                        <h5 class="card-title">Science Books</h5>
-                        <p class="card-text">Explore the wonders of science!</p>
-                        <a href="science.html" class="btn btn-primary">View More</a>
+        </div>
+        <div class="col-md-3">
+            <div class="card mb-4 h-100">
+                <img src="\static\Medical\medical.jpg" class="card-img-top" alt="Medical Book Image"
+                    style="height: 200px;">
+                <div class="card-body">
+                    <h5 class="card-title">Medical Books</h5>
+                    <p class="card-text">Explore the wonders of Medicine!</p>
+                    <div class="btn-group">
+                        <button type="button" class="btn btn-primary dropdown-toggle" data-bs-toggle="dropdown"
+                            aria-expanded="false">
+                            View Books
+                        </button>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="#">MBBS</a></li>
+                            <li><a class="dropdown-item" href="#">Pharmacy</a></li>
+                        </ul>
                     </div>
                 </div>
             </div>
-            <div class="col-md-3">
-                <div class="card mb-4">
-                    <img src="https://via.placeholder.com/300x200" class="card-img-top" alt="Book Image">
-                    <div class="card-body">
-                        <h5 class="card-title">History Books</h5>
-                        <p class="card-text">Unravel the mysteries of the past!</p>
-                        <a href="history.html" class="btn btn-primary">View More</a>
+        </div>
+        <div class="col-md-3">
+            <div class="card mb-4 h-100">
+                <img src="static/Law/justice.jpg" class="card-img-top" alt="Law Book Image" style="height: 200px;">
+                <div class="card-body">
+                    <h5 class="card-title">Law Books</h5>
+                    <p class="card-text">Unravel the mysteries of the law!</p>
+                    <div class="btn-group">
+                        <button type="button" class="btn btn-primary dropdown-toggle" data-bs-toggle="dropdown"
+                            aria-expanded="false">
+                            View Books
+                        </button>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="#">LLB</a></li>
+                            <li><a class="dropdown-item" href="#">Master of Law</a></li>
+                        </ul>
                     </div>
                 </div>
             </div>
-            <div class="col-md-3">
-                <div class="card mb-4">
-                    <img src="https://via.placeholder.com/300x200" class="card-img-top" alt="Book Image">
-                    <div class="card-body">
-                        <h5 class="card-title">Self-Help Books</h5>
-                        <p class="card-text">Discover your true potential!</p>
-                        <a href="self-help.html" class="btn btn-primary">View More</a>
+        </div>
+        <div class="col-md-3">
+            <div class="card mb-4 h-100">
+                <img src="static/Commerce/billie-dollar-money-background.jpg" class="card-img-top"
+                    alt="Commerce Book Image" style="height: 200px;">
+                <div class="card-body">
+                    <h5 class="card-title">Commerce Books</h5>
+                    <p class="card-text">Discover your true business potential!</p>
+                    <div class="btn-group">
+                        <button type="button" class="btn btn-primary dropdown-toggle" data-bs-toggle="dropdown"
+                            aria-expanded="false">
+                            View Books
+                        </button>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="#">B.Com</a></li>
+                            <li><a class="dropdown-item" href="#">M.Com</a></li>
+                            <li><a class="dropdown-item" href="#">Chartered Accountant</a></li>
+                        </ul>
                     </div>
                 </div>
             </div>
         </div>
     </div>
+</div>
 {% endblock body %}
-
-
-</html>
