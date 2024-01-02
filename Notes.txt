@@ -1,0 +1,61 @@
+> Install -> pip install django
+> Create Project -> django-admin startproject <project-name>
+> Create an app inside project -> django-admin startapp <app-name>
+> Paste the urls into app from project
+
+URLS : 
+> path ('<recieved-request>', '<directing-request>', name = '<name of directing url>')
+
+For Unhindered Authentication:
+python manage.py makemigrations
+python manage.py migrate
+
+> makemigrations - create changes and store in a file
+> migrate -apply pending changes created by makemigrations
+
+2 types of user
+> Normal User : Limited Access and Privledges
+> Super User : Unlimited Access and Privledges
+
+To create super user :- python manage.py createsuperuser
+Username : jeet
+Password : Gemish@14
+
+Proper looking carousel
+<div class="container-fluid my-4">
+
+> Random Images:
+https://source.unsplash.com/1200x500/?phone,contact
+
+> To see changes in DB
+python manage.py makemigrations
+
+> To register Model
+Goto admin.py of app
+from <app-name>.models import <Model-Name>
+admin.site.register(<Model-Name>)
+
+> To register app
+Goto apps.py -> copy class name
+Goto settings.py -> paste copied name in INSTALLED_APPS
+and type 'home.apps.<copied-class-name>'
+Run python.manage.py makemigrations
+
+> Create a data model in models.py
+class <Class-Name>(models.Model):
+    name = model.CharField(max-lenghth=12)
+    .
+    date= models.DateField()
+
+> To get form data into DB
+if request.method == 'POST':
+    name = request.POST.get(<cols of model> name)
+    .
+    .
+    <instance> = <Model-Name>(<name> = <col-name>,..., date= datetime.today())
+    <instance>.save()
+return render(request,'<HTML-PAGE>.html')
+
+> To display name in admin panel type this in model.py under your DB Model class
+ def __str__(self):
+        return self.name
