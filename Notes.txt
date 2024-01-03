@@ -59,3 +59,7 @@ return render(request,'<HTML-PAGE>.html')
 > To display name in admin panel type this in model.py under your DB Model class
  def __str__(self):
         return self.name
+
+> For Admin Authentication and login add this in views.py of app
+from django.contrib.auth.models import <Model_name>
+from django.contrib.auth import authenticate, login
