@@ -3,17 +3,19 @@
 {% endblock title %}
 
 {% block body %}
+<br>
 <div class="container">
     <div class="row">
         <div class="col-md-4">
-            <img src="{{ book.image.url }}" alt="{{ book.title }} Cover">
+            <img src="{{ book.image.url }}" alt="{{ book.title }} Cover" style="height:80%; width:auto; box-shadow: rgba(0, 0, 0, 0.25) 0px 14px 28px, rgba(0, 0, 0, 0.22) 0px 10px 10px;">
         </div>
         <div class="col-md-8">
             <h2>{{ book.title }}</h2>
-            <p><strong>ID:</strong> {{ book.book_id }}</p>
-            <p><strong>Pages:</strong> {{ book.pagesCount }}</p>
-            <p><strong>Author:</strong> {{ book.author }}</p>
-            <p><strong>Price:</strong> ₹{{ book.price }}</p>
+            <br>
+            <h4><strong>ID:</strong> {{ book.book_id }}</h4>
+            <h4><strong>Pages:</strong> {{ book.pagesCount }}</h4>
+            <h4><strong>Author:</strong> {{ book.author }}</h4>
+            <h4><strong>Price:</strong> ₹{{ book.price }}</h4>
         </div>
     </div>
 </div>

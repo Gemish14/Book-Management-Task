@@ -3,20 +3,22 @@
 
 {% block body %}
 <div class="container mt-5">
-    <h1 class="text-center mb-4">Access the VJTI Library Repository</h1>
+    <h1 class="text-center mb-4">Access the VJTI Library Reposistory</h1>
     <div class="row">
         {% if books %}
             {% if category %}
-                <h4>Books in Category: {{ category }}</h4>
+                <h4>Books in {{ category }} Category</h4>
             {% else %}
-            <h4>All Books</h4>
+                <h4>All Books</h4>
             {% endif %}
                 {% for book in books %}
                     <div class="col-md-3 mb-4">
                         <div class="card book-card">
+                            <a href="{% url 'book_detail' book_id=book.book_id %}">
                             {% if book.image %}
                                 <img src="{{ book.image.url }}" class="card-img-top" alt="{{ book.title }} Cover">
                             {% endif %}
+                            </a>
                         </div>
                     </div>
                 {% endfor %}
