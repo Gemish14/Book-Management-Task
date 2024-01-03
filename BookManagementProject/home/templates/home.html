@@ -23,10 +23,10 @@
                             View Books
                         </button>
                         <ul class="dropdown-menu">
-                            <li><a class="dropdown-item" href="#">Computer Science</a></li>
-                            <li><a class="dropdown-item" href="#">Textile</a></li>
-                            <li><a class="dropdown-item" href="#">Civil</a></li>
-                            <li><a class="dropdown-item" href="#">Electrical</a></li>
+                            <li><a class="dropdown-item" href="{% url 'books_by_category' 'COMP' %}">Computer Science</a></li>
+                            <li><a class="dropdown-item" href="{% url 'books_by_category' 'Textile' %}">Textile</a></li>
+                            <li><a class="dropdown-item" href="{% url 'books_by_category' 'Civil' %}">Civil</a></li>
+                            <li><a class="dropdown-item" href="{% url 'books_by_category' 'Electrical' %}">Electrical</a></li>
                         </ul>
                     </div>
                 </div>
@@ -45,8 +45,8 @@
                             View Books
                         </button>
                         <ul class="dropdown-menu">
-                            <li><a class="dropdown-item" href="#">MBBS</a></li>
-                            <li><a class="dropdown-item" href="#">Pharmacy</a></li>
+                            <li><a class="dropdown-item" href="{% url 'books_by_category' 'MBBS' %}">MBBS</a></li>
+                            <li><a class="dropdown-item" href="{% url 'books_by_category' 'Pharmacy' %}">Pharmacy</a></li>
                         </ul>
                     </div>
                 </div>
@@ -64,8 +64,8 @@
                             View Books
                         </button>
                         <ul class="dropdown-menu">
-                            <li><a class="dropdown-item" href="#">LLB</a></li>
-                            <li><a class="dropdown-item" href="#">Master of Law</a></li>
+                            <li><a class="dropdown-item" href="{% url 'books_by_category' 'LLB' %}">LLB</a></li>
+                            <li><a class="dropdown-item" href="{% url 'books_by_category' 'MOL' %}">Master of Law</a></li>
                         </ul>
                     </div>
                 </div>
@@ -84,9 +84,9 @@
                             View Books
                         </button>
                         <ul class="dropdown-menu">
-                            <li><a class="dropdown-item" href="#">B.Com</a></li>
-                            <li><a class="dropdown-item" href="#">M.Com</a></li>
-                            <li><a class="dropdown-item" href="#">Chartered Accountant</a></li>
+                            <li><a class="dropdown-item" href="{% url 'books_by_category' 'Bcom' %}">B.Com</a></li>
+                            <li><a class="dropdown-item" href="{% url 'books_by_category' 'Mcom' %}">M.Com</a></li>
+                            <li><a class="dropdown-item" href="{% url 'books_by_category' 'CA' %}">Chartered Accountant</a></li>
                         </ul>
                     </div>
                 </div>

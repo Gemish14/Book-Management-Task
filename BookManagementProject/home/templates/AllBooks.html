@@ -6,16 +6,21 @@
     <h1 class="text-center mb-4">Access the VJTI Library Repository</h1>
     <div class="row">
         {% if books %}
-            {% for book in books %}
-                <div class="col-md-3 mb-4">
-                    <div class="card book-card">
-                        {% if book.image %}
-                            <img src="{{ book.image.url }}" class="card-img-top" alt="{{ book.title }} Cover">
-                        {% endif %}
+            {% if category %}
+                <h4>Books in Category: {{ category }}</h4>
+            {% else %}
+            <h4>All Books</h4>
+            {% endif %}
+                {% for book in books %}
+                    <div class="col-md-3 mb-4">
+                        <div class="card book-card">
+                            {% if book.image %}
+                                <img src="{{ book.image.url }}" class="card-img-top" alt="{{ book.title }} Cover">
+                            {% endif %}
+                        </div>
                     </div>
-                </div>
-            {% endfor %}
-        {% else %}
+                {% endfor %}
+            {% else %}
             <p>No books available.</p>
         {% endif %}
     </div>
