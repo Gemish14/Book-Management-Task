@@ -2,7 +2,7 @@
 {%block title%} Home {%endblock title%}
 {% block body %}
 
-<div class="container-fluid py-5">
+<div class="container-fluid py-5" style="margin-left: 40px;">
     <h1 class="display-5 fw-bold">VJTI Library</h1>
     <p class="col-md-8 fs-4">Get your hands on hundreds of books of our VJTI's library. Anytime and Anywhere</p>
     <a href="/AllBooks" class="btn btn-primary">Explore All Books</a>
@@ -20,7 +20,7 @@
                     <div class="btn-group">
                         <button type="button" class="btn btn-primary dropdown-toggle" data-bs-toggle="dropdown"
                             aria-expanded="false">
-                            View Books
+                            View Stream Wise Book
                         </button>
                         <ul class="dropdown-menu">
                             <li><a class="dropdown-item" href="{% url 'books_by_category' 'COMP' %}">Computer Science</a></li>
@@ -42,7 +42,7 @@
                     <div class="btn-group">
                         <button type="button" class="btn btn-primary dropdown-toggle" data-bs-toggle="dropdown"
                             aria-expanded="false">
-                            View Books
+                            View Stream Wise Book
                         </button>
                         <ul class="dropdown-menu">
                             <li><a class="dropdown-item" href="{% url 'books_by_category' 'MBBS' %}">MBBS</a></li>
@@ -61,7 +61,7 @@
                     <div class="btn-group">
                         <button type="button" class="btn btn-primary dropdown-toggle" data-bs-toggle="dropdown"
                             aria-expanded="false">
-                            View Books
+                            View Stream Wise Book
                         </button>
                         <ul class="dropdown-menu">
                             <li><a class="dropdown-item" href="{% url 'books_by_category' 'LLB' %}">LLB</a></li>
@@ -81,7 +81,7 @@
                     <div class="btn-group">
                         <button type="button" class="btn btn-primary dropdown-toggle" data-bs-toggle="dropdown"
                             aria-expanded="false">
-                            View Books
+                            View Stream Wise Book
                         </button>
                         <ul class="dropdown-menu">
                             <li><a class="dropdown-item" href="{% url 'books_by_category' 'Bcom' %}">B.Com</a></li>

@@ -2,7 +2,7 @@
 {% block title %} All Books {% endblock title %}
 
 {% block body %}
-<div class="container mt-5">
+<div class="container mt-5 mb-5">
     <h1 class="text-center mb-4">Access the VJTI Library Reposistory</h1>
     <div class="row">
         {% if books %}
@@ -27,4 +27,12 @@
         {% endif %}
     </div>
 </div>
+<div class="fixed-bottom">
+    <button type="button" class="btn btn-primary mb-3 mx-auto d-block" onclick="goBack()">Go Back</button>
+</div>
+<script>
+    function goBack() {
+        window.history.back();
+    }
+</script>
 {% endblock body %}
