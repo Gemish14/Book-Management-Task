@@ -16,8 +16,16 @@
             <h4><strong>Pages:</strong> {{ book.pagesCount }}</h4>
             <h4><strong>Author:</strong> {{ book.author }}</h4>
             <h4><strong>Price:</strong> ₹{{ book.price }}</h4>
+            <br>
+            <a class="btn btn-outline-success" href="#" role="button">Reserve This Book</a>
+            <br>
+            <button type="button" class="btn btn-outline-primary mt-3" onclick="goBack()">Go Back</button>
         </div>
     </div>
 </div>
-
+<script>
+    function goBack() {
+        window.history.back();
+    }
+</script>
 {% endblock body %}

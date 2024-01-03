@@ -8,7 +8,7 @@ urlpatterns = [
     path('', views.home, name='home'),
     path('AllBooks/', views.AllBooks, name='AllBooks'),
     path('AllBooks/<str:category>/', views.books_by_category, name='books_by_category'),
-    path('book/<int:book_id>/', views.book_detail, name='book_detail'),
+    path('book/<int:book_id>/', views.book_detail, name='book_detail')
 ]
 
 if settings.DEBUG:
