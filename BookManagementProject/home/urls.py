@@ -8,7 +8,8 @@ urlpatterns = [
     path('',views.home,name='home'),
     path('login',views.login,name='login'),
     path('bookView',views.bookView,name='bookView'),
-    path('AllBooks/',views.AllBooks,name = "AllBooks")
+    path('AllBooks/',views.AllBooks,name = "AllBooks"),
+    path('AllBooks/<str:category>/', views.books_by_category, name='books_by_category')
 ]
 if settings.DEBUG:
     urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

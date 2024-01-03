@@ -17,10 +17,10 @@ class Student(models.Model):
     stud_id = models.IntegerField("Enter Roll No.",primary_key=True)
     email = models.EmailField("Enter Email",null=True)
 
-    """ def __str__(self):
-        return self.name 
- """
+    """  def __str__(self):
+        return self.name """ 
+
     class Meta : 
-        db_table = 'student'
+        db_table = 'student' 
 
     
