@@ -17,7 +17,6 @@
             <h4><strong>Pages:</strong> {{ book.pagesCount }}</h4>
             <h4><strong>Author:</strong> {{ book.author }}</h4>
             <h4><strong>Price:</strong> ₹{{ book.price }}</h4>
-            <p>User ID from session: {{ request.session.user_id }}</p>
             <br>
             <a class="btn btn-success" href="{% url 'reserve_book' book.book_id %}" role="button">Reserve This Book</a>
             {% if reservation_success %}

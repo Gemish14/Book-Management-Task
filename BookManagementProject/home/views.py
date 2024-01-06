@@ -4,6 +4,9 @@ from django.contrib.auth.hashers import make_password, check_password
 from django.contrib.auth import authenticate, login,logout  as django_logout
 from django.contrib import messages
 from django.core.mail import send_mail
+from django.conf import settings
+from django.contrib.auth.models import User
+
 
 import logging
 logger = logging.getLogger(__name__)
@@ -78,19 +81,28 @@ def logout(request):
     django_logout(request)  # Log out the user
     return redirect('login')
 
-
 def reserve_book(request, book_id):
     book = get_object_or_404(Book, pk=book_id)
-    # Sending email to the logged-in user
-    if request.user.is_authenticated:
-        student_email = request.user.email
-        subject = f"Book Reserved: {book.title}"
-        message = f"Dear {request.user.username},\n\nYou have successfully reserved the book '{book.title}'.\n\nEnjoy reading!\n\nRegards,\nAdmin"
-        from_email = 'jejo14501@gmail.com'  # Replace with the admin's email or use a valid email in your system
-        send_mail(subject, message, from_email, [student_email])
-        messages.success(request, f"You've reserved '{book.title}'. Enjoy reading!")
+    
+    if request.session.get('user_id'):
+        user_id = request.session['user_id']
+        try:
+            user = User.objects.get(pk=user_id)
+            student_email = user.email
+            subject = f"Book Reserved: {book.title}"
+            message = f"Dear {user.username},\n\nYou have successfully reserved the book '{book.title}'.\n\nEnjoy reading!\n\nRegards,\nAdmin"
+            from_email = settings.EMAIL_HOST_USER
+            
+            try:
+                send_mail(subject, message, from_email, [student_email], fail_silently=False)
+                messages.success(request, f"You've reserved '{book.title}'. Enjoy reading!")
+            except Exception as e:
+                # Handle email sending failure
+                messages.error(request, f"Failed to reserve the book. Error: {e}")
+        except User.DoesNotExist:
+            messages.error(request, "User does not exist.")
     else:
-        # User is not logged in
         messages.error(request, "Please log in to reserve a book.")
 
     return redirect('book_detail', book_id=book_id)
+
