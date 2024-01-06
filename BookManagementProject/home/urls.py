@@ -11,9 +11,11 @@ urlpatterns = [
     path('AllBooks/', views.AllBooks, name='AllBooks'),
     path('AllBooks/<str:category>/', views.books_by_category, name='books_by_category'),
     path('book/<int:book_id>/', views.book_detail, name='book_detail'),
-    path('login/', views.login, name='login'),
     path('signup/', views.signup, name='signup'),
-    path('logout/', views.logout_view, name='logout'),
+    path('login/', views.login, name='login'),
+    path('logout/', views.logout, name='logout'),
+    path('reserve/<int:book_id>/', views.reserve_book, name='reserve_book'),
+
 ]
 
 if settings.DEBUG:

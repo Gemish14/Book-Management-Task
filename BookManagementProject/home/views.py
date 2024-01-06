@@ -1,23 +1,16 @@
 from django.shortcuts import render, get_object_or_404,redirect
 from home.models import Book,Student
 from django.contrib.auth.hashers import make_password, check_password
-from django.contrib.auth.decorators import login_required
-from django.contrib.auth import logout, authenticate, login
+from django.contrib.auth import authenticate, login,logout  as django_logout
+from django.contrib import messages
+from django.core.mail import send_mail
+
 import logging
 logger = logging.getLogger(__name__)
 
 #@login_required  # Requires the user to be logged in
 def home(request):
-    # Fetch the user's name if user ID is present in the session
-    user_id = request.session.get('user_id')
-    user_name = None
-    if user_id:
-        try:
-            user = Student.objects.get(stud_id=user_id)
-            user_name = user.name
-        except Student.DoesNotExist:
-            pass
-    return render(request, 'home.html', {'name': user_name})
+    return render(request, 'home.html')
 
 def AllBooks(request):
     books = Book.objects.all()  # Retrieve all books from the database
@@ -54,32 +47,50 @@ def signup(request):
 
     return render(request, 'signup.html')
 
-def login(request):   
-    error_message = None  # Initialize error message
 
+def login(request):
+    error_message = None
+    
     if request.method == 'POST':
         email = request.POST.get('email')
         password = request.POST.get('password')
 
+        # Fetch the student based on email
         try:
             student = Student.objects.get(email=email)
             password_correct = check_password(password, student.password)
 
             if password_correct:
-                # Authentication successful
                 request.session['user_id'] = student.stud_id
+                logger.debug("User authenticated")
                 return redirect('home')
             else:
-                # Incorrect password
-                error_message = 'Invalid email or password'
+                logger.debug("Invalid username or password")
+                error_message = 'Invalid username or password'
         except Student.DoesNotExist:
-            # Student with provided email does not exist
-            error_message = 'Invalid email or password'
+            logger.debug("Student does not exist")
+            error_message = 'Invalid username or password'
 
-    # Return the login form with the error message if applicable
     return render(request, 'login.html', {'error_message': error_message})
-
-def logout_view(request):
-    logout(request)
-    return redirect('login')
    
+def logout(request):
+    request.session.flush()
+    django_logout(request)  # Log out the user
+    return redirect('login')
+
+
+def reserve_book(request, book_id):
+    book = get_object_or_404(Book, pk=book_id)
+    # Sending email to the logged-in user
+    if request.user.is_authenticated:
+        student_email = request.user.email
+        subject = f"Book Reserved: {book.title}"
+        message = f"Dear {request.user.username},\n\nYou have successfully reserved the book '{book.title}'.\n\nEnjoy reading!\n\nRegards,\nAdmin"
+        from_email = 'jejo14501@gmail.com'  # Replace with the admin's email or use a valid email in your system
+        send_mail(subject, message, from_email, [student_email])
+        messages.success(request, f"You've reserved '{book.title}'. Enjoy reading!")
+    else:
+        # User is not logged in
+        messages.error(request, "Please log in to reserve a book.")
+
+    return redirect('book_detail', book_id=book_id)

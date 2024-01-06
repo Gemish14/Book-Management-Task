@@ -7,7 +7,8 @@
 <div class="container">
     <div class="row">
         <div class="col-md-4">
-            <img src="{{ book.image.url }}" alt="{{ book.title }} Cover" style="height:80%; width:auto; box-shadow: rgba(0, 0, 0, 0.25) 0px 14px 28px, rgba(0, 0, 0, 0.22) 0px 10px 10px;">
+            <img src="{{ book.image.url }}" alt="{{ book.title }} Cover"
+                style="height:80%; width:auto; box-shadow: rgba(0, 0, 0, 0.25) 0px 14px 28px, rgba(0, 0, 0, 0.22) 0px 10px 10px;">
         </div>
         <div class="col-md-8">
             <h2>{{ book.title }}</h2>
@@ -16,8 +17,21 @@
             <h4><strong>Pages:</strong> {{ book.pagesCount }}</h4>
             <h4><strong>Author:</strong> {{ book.author }}</h4>
             <h4><strong>Price:</strong> ₹{{ book.price }}</h4>
+            <p>User ID from session: {{ request.session.user_id }}</p>
             <br>
-            <a class="btn btn-success" href="#" role="button">Reserve This Book</a>
+            <a class="btn btn-success" href="{% url 'reserve_book' book.book_id %}" role="button">Reserve This Book</a>
+            {% if reservation_success %}
+            <div class="alert alert-success mt-3" role="alert">
+                Book has been successfully reserved! You can collect it within 24 hours.
+            </div>
+            {% endif %}
+
+            <!-- Additional section for error handling -->
+            {% if reservation_error %}
+            <div class="alert alert-danger mt-3" role="alert">
+                There was an error processing your request. Please try again.
+            </div>
+            {% endif %}
             <br>
             <button type="button" class="btn btn-primary mt-3" onclick="goBack()">Go Back</button>
         </div>
