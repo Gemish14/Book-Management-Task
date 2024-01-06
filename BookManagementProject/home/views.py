@@ -5,7 +5,6 @@ from django.contrib.auth import authenticate, login,logout  as django_logout
 from django.contrib import messages
 from django.core.mail import send_mail
 from django.conf import settings
-from django.contrib.auth.models import User
 
 
 import logging
@@ -50,7 +49,6 @@ def signup(request):
 
     return render(request, 'signup.html')
 
-
 def login(request):
     error_message = None
     
@@ -87,10 +85,10 @@ def reserve_book(request, book_id):
     if request.session.get('user_id'):
         user_id = request.session['user_id']
         try:
-            user = User.objects.get(pk=user_id)
-            student_email = user.email
+            student = Student.objects.get(pk=user_id)
+            student_email = student.email
             subject = f"Book Reserved: {book.title}"
-            message = f"Dear {user.username},\n\nYou have successfully reserved the book '{book.title}'.\n\nEnjoy reading!\n\nRegards,\nAdmin"
+            message = f"Dear {student.name},\n\nYou have successfully reserved the book '{book.title}'.\n\nEnjoy reading!\n\nRegards,\nAdmin"
             from_email = settings.EMAIL_HOST_USER
             
             try:
@@ -99,10 +97,8 @@ def reserve_book(request, book_id):
             except Exception as e:
                 # Handle email sending failure
                 messages.error(request, f"Failed to reserve the book. Error: {e}")
-        except User.DoesNotExist:
+        except Student.DoesNotExist:
             messages.error(request, "User does not exist.")
     else:
         messages.error(request, "Please log in to reserve a book.")
-
     return redirect('book_detail', book_id=book_id)
-
