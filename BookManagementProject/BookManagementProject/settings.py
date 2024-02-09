@@ -30,7 +30,7 @@ SECRET_KEY = "django-insecure-bptxb0mkfokvvulgbhgezl8xeq76+(9(0ctegr(l(qu9kd^dpl
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['.vercel.app']
 
 
 # Application definition
@@ -126,18 +126,18 @@ USE_TZ = True
 STATIC_URL = "static/"
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, 'home', 'static'),  # Main static directory
-    os.path.join(BASE_DIR, 'home', 'static', 'Engineering'),  
-    os.path.join(BASE_DIR, 'home', 'static', 'Medical'),    
+    #os.path.join(BASE_DIR, 'home', 'static', 'Engineering'),  
+    #os.path.join(BASE_DIR, 'home', 'static', 'Medical'),    
     #os.path.join(BASE_DIR, 'home', 'static', 'law'),          
     #os.path.join(BASE_DIR, 'home', 'static', 'civil'),        
     
-    os.path.join(BASE_DIR, 'home', 'static', 'Engineering', 'CS'),  
+    """ os.path.join(BASE_DIR, 'home', 'static', 'Engineering', 'CS'),  
     os.path.join(BASE_DIR, 'home', 'static', 'Engineering', 'Electrical'),  
     os.path.join(BASE_DIR, 'home', 'static', 'Engineering', 'Textile'),     
     os.path.join(BASE_DIR, 'home', 'static', 'Engineering', 'Civil'), 
 
     os.path.join(BASE_DIR, 'home', 'static', 'Medical', 'MBBS'),  
-    os.path.join(BASE_DIR, 'home', 'static', 'Medical', 'Pharmacy')    
+    os.path.join(BASE_DIR, 'home', 'static', 'Medical', 'Pharmacy')"""   
    
     # Add other sub-subcategories or subdirectories for other categories similarly
 ]
