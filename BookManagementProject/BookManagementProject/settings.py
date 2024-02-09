@@ -28,10 +28,9 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = "django-insecure-bptxb0mkfokvvulgbhgezl8xeq76+(9(0ctegr(l(qu9kd^dpl"
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
-ALLOWED_HOSTS = []
-
+ALLOWED_HOSTS = ['.vercel.app','now.sh','127.0.0.1','localhost']
 
 # Application definition
 
@@ -81,13 +80,24 @@ WSGI_APPLICATION = "BookManagementProject.wsgi.application"
 # Database
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
 
-DATABASES = {
+""" DATABASES = {
     "default": {
         "ENGINE": "django.db.backends.sqlite3",
         "NAME": BASE_DIR / "db.sqlite3",
     }
 }
+ """
 
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'railway',
+        'USER': 'postgres',
+        'PASSWORD': 'AFad3bgE6Be2eDGce*bgEE32-B-GFD4c',
+        'HOST': 'viaduct.proxy.rlwy.net',
+        'PORT': '18867',
+    }
+}
 
 # Password validation
 # https://docs.djangoproject.com/en/4.2/ref/settings/#auth-password-validators
@@ -126,20 +136,6 @@ USE_TZ = True
 STATIC_URL = "static/"
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, 'home', 'static'),  # Main static directory
-    #os.path.join(BASE_DIR, 'home', 'static', 'Engineering'),  
-    #os.path.join(BASE_DIR, 'home', 'static', 'Medical'),    
-    #os.path.join(BASE_DIR, 'home', 'static', 'law'),          
-    #os.path.join(BASE_DIR, 'home', 'static', 'civil'),        
-    
-    """ os.path.join(BASE_DIR, 'home', 'static', 'Engineering', 'CS'),  
-    os.path.join(BASE_DIR, 'home', 'static', 'Engineering', 'Electrical'),  
-    os.path.join(BASE_DIR, 'home', 'static', 'Engineering', 'Textile'),     
-    os.path.join(BASE_DIR, 'home', 'static', 'Engineering', 'Civil'), 
-
-    os.path.join(BASE_DIR, 'home', 'static', 'Medical', 'MBBS'),  
-    os.path.join(BASE_DIR, 'home', 'static', 'Medical', 'Pharmacy')"""   
-   
-    # Add other sub-subcategories or subdirectories for other categories similarly
 ]
 
 
