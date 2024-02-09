@@ -63,3 +63,8 @@ return render(request,'<HTML-PAGE>.html')
 > For Admin Authentication and login add this in views.py of app
 from django.contrib.auth.models import <Model_name>
 from django.contrib.auth import authenticate, login
+
+> Host using Vercel
+for requirements.txt -> pip freeze > requirements.txt
+in wsgi.py type app = application
+in settings.py ALLOWED_HOSTS = ['.vercel.app'] 
